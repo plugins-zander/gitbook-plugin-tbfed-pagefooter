@@ -11,6 +11,8 @@ module.exports = {
       var _label = 'File Modify: ',
           _format = 'YYYY-MM-DD HH:mm:ss',
           _copy = 'powered by Gitbook'
+      var _bszjs = '<script async src="//cdn.jsdelivr.net/gh/ZanderZhao/cdn/js/busuanzi.pure.mini.js"></script>'
+
       if(this.options.pluginsConfig['tbfed-pagefooter']) {
         _label = this.options.pluginsConfig['tbfed-pagefooter']['modify_label'] || _label;
         _format = this.options.pluginsConfig['tbfed-pagefooter']['modify_format'] || _format;
@@ -24,7 +26,9 @@ module.exports = {
         _label +
         '\n{{file.mtime | date("' + _format +
         '")}}\n</span></footer>'
-      page.content = page.content + str;
+
+      page.content = page.content + str + _bszjs;
+
       return page;
     }
   },
